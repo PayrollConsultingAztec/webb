@@ -1,0 +1,647 @@
+
+/* General Styles */
+body {
+    line-height: 1.6;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #051338; /* Fondo principal */
+    color: #f0f0f0; /* Color claro para contraste */
+    overflow-x: hidden;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Altura inicial */
+    background: -webkit-linear-gradient(#97c9fc, #051338); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(#97c9fc, #051338); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    padding: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    box-shadow: 1 2px 20px rgba(138, 138, 145, 0.7);
+    animation: expand 3s forwards; /* Animación de expansión */
+}
+
+@keyframes expand {
+    0% {
+        height: 100vh;
+    }
+    100% {
+        height: 80px; /* Altura fija del header */
+    }
+}
+
+.logo {
+    width: 130px; /* Ancho fijo */
+    height: auto;
+    margin-right: 15px;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px rgb(255, 254, 254));
+}
+
+a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 20px;
+    transition: color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+.company-name {
+    font-size: 3rem; /* Tamaño de fuente grande */
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 5px; /* Espaciado entre letras */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #81bbe4;
+    animation: fadeInOut 5s ease-in-out infinite; /* Animación de desvanecimiento */
+    animation-delay: 1s;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .logo-container {
+        padding: 20px; /* Reducir padding en pantallas pequeñas */
+    }
+
+    .company-name {
+        font-size: 2rem; /* Tamaño más pequeño en pantallas pequeñas */
+        letter-spacing: 3px; /* Ajustar espaciado en pantallas pequeñas */
+    }
+
+    .logo {
+        width: 30%; /* Ajustar el tamaño del logo en pantallas pequeñas */
+        max-width: 100px; /* Limitar el tamaño máximo del logo */
+    }
+}
+
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 1.5rem; /* Tamaño aún más pequeño en pantallas muy pequeñas */
+    }
+
+    .logo {
+        width: 40%; /* Ajustar el tamaño del logo en pantallas muy pequeñas */
+    }
+}
+
+
+/* Sección Principal */
+section {
+    padding: 8rem 2rem;
+    text-align: center;
+    animation: fadeInSection 1.5s ease-in-out;
+}
+
+@keyframes fadeInSection {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section h2 {
+    color: #2fa0ec;
+    font-size: 2.5rem; /* Aumentamos el tamaño para dar más impacto */
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: textSlide 1.5s ease-out;
+    letter-spacing: 2px;
+}
+
+@keyframes textSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px); /* El encabezado comienza desde más arriba */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section p {
+    color: #dcdcdc;
+    font-size: 1.6rem;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: justify;
+    animation: textFadeIn 1.5s ease-in-out;
+    line-height: 1.6;
+}
+
+@keyframes textFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto de hover para el texto */
+section p:hover {
+    color: #ffffff;
+    transform: translateY(-5px);
+    transition: all 0.3s ease-out;
+}
+
+
+/* Caja de Servicios */
+.service-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+    perspective: 1500px; /* Añadido para animación 3D */
+}
+
+/* Tarjeta de servicio con animación avanzada */
+.service-card {
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 2rem;
+    flex: 1;
+    min-width: 280px;
+    max-width: 30%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    animation: cardGlow 2s infinite alternate, cardDistortion 1s ease-in-out forwards;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)); /* Fondo oscuro */
+}
+
+/* Efecto de "brillo" de neón */
+@keyframes cardGlow {
+    0% {
+        border-color: rgba(0, 255, 255, 0.5);
+        box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.7);
+    }
+    100% {
+        border-color: rgba(0, 255, 255, 0.2);
+        box-shadow: 0px 0px 25px rgba(0, 255, 255, 1);
+    }
+}
+
+/* Efecto de distorsión suave para darle un toque futurista */
+@keyframes cardDistortion {
+    0% {
+        transform: rotateY(10deg) translateY(30px) scale(0.98);
+    }
+    50% {
+        transform: rotateY(-10deg) translateY(10px) scale(1.05);
+    }
+    100% {
+        transform: rotateY(0deg) translateY(0px) scale(1);
+    }
+}
+
+/* Efecto hover: animación de escala y brillo */
+.service-card:hover {
+    transform: scale(1.1) translateY(-10px) rotateY(10deg); /* Escala y rotación al pasar el ratón */
+    box-shadow: 0px 12px 30px rgba(0, 255, 255, 0.5);
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.1), rgba(0, 0, 0, 0.9));
+    border: 2px solid rgba(0, 255, 255, 1); /* Borde con cambio de color */
+}
+
+/* Títulos con animación interactiva */
+.service-card h3 {
+    font-size: 2rem;
+    color: #4aeeaf;
+    margin-bottom: 1rem;
+    transition: transform 0.4s ease-out, color 0.4s ease-out;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Efecto hover del título: movimiento hacia arriba y cambio de color */
+.service-card:hover h3 {
+    color: #00ffcc;
+    transform: translateY(-10px) scale(1.1);
+}
+
+/* Texto dentro de la tarjeta */
+.service-card p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    transform: translateY(20px); /* Desplazamiento inicial */
+    opacity: 0;
+    animation: textFadeIn 0.8s ease-out forwards;
+}
+
+/* Animación para hacer aparecer el texto de forma suave */
+@keyframes textFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto de aparición del texto con desplazamiento al hacer hover */
+.service-card:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación de partículas flotantes en la tarjeta */
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: url('https://cdn.pixabay.com/photo/2017/08/30/21/53/particles-2693634_960_720.jpg') no-repeat center;
+    background-size: cover;
+    filter: blur(15px);
+    z-index: -1;
+    opacity: 0;
+    transform: scale(1.2);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+    transform: scale(1.5); /* Zoom en la imagen de fondo */
+}
+
+/* Efecto de partículas con movimiento en la tarjeta */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(145, 235, 235, 0.1), #051338);
+    z-index: -2;
+    animation: particleMove 10s infinite linear;
+}
+
+/* Movimiento fluido de las partículas en el fondo */
+@keyframes particleMove {
+    0% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Animación de retraso para las tarjetas (que aparezcan una tras otra) */
+.service-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.service-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.service-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+
+.menu-inferior {
+    background: linear-gradient(145deg, #8b96e7, #1d1d2b); /* Degradado vibrante */
+    border-radius: 40px; /* Bordes muy redondeados */
+    position: fixed; /* Fijo en la parte inferior */
+    bottom: 20px; /* Ajustado para posicionarlo más arriba */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Ajustar para centrar */
+    width: calc(100% - 40px); /* Ajustar para tener márgenes laterales */
+    max-width: 1100px; /* Ancho máximo */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Sombra más intensa */
+    z-index: 1; /* Asegúrate de que esté encima de otros elementos */
+    padding: 10px 0; /* Espaciado vertical */
+    backdrop-filter: blur(25px); /* Efecto de desenfoque de fondo más fuerte */
+    transition: background 0.5s, transform 0.3s, bottom 0.5s ease-in-out, opacity 0.3s; /* Añadir animación para "bottom" y "opacity" */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil para un toque HD */
+    opacity: 1; /* Asegura que el menú sea visible al principio */
+    transform-origin: center center; /* Establecer el centro como origen de las transformaciones */
+}
+
+.menu-inferior:hover {
+    background: linear-gradient(135deg, #1d1d2b, #3a3e5b);
+    transform: translateY(-10px) translateX(-50%); /* Mantener el centramiento al hacer hover */
+    opacity: 0.9; /* Reduce ligeramente la opacidad al hacer hover */
+}
+
+  /* Agregar animación al menú cuando se carga la página */
+@keyframes slideUp {
+    0% {
+      bottom: -100px; /* Comienza fuera de la pantalla */
+      opacity: 0; /* Invisible al inicio */
+    }
+    100% {
+      bottom: 20px; /* Se coloca en su posición final */
+      opacity: 1; /* Visibilidad completa */
+    }
+}
+
+.menu-inferior {
+    animation: slideUp 1s ease-out forwards; /* Aplica la animación al menú */
+}
+
+.menu-inferior nav {
+    display: flex; /* Flexbox para alinear los elementos */
+    justify-content: space-around; /* Espaciado uniforme entre elementos */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+}
+.menu-inferior .menu {
+    list-style: none; /* Sin viñetas */
+    padding: 0; /* Sin padding */
+    margin: 0; /* Sin margen */
+    display: flex; /* Para alinear horizontalmente */
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten en pantallas pequeñas */
+    justify-content: center; /* Centrar los elementos */
+}
+
+.menu-inferior .menu li {
+    margin: 5px; /* Añadir márgenes para evitar que los elementos se amontonen */
+}
+
+.menu-inferior a {
+    color: #ffffff; /* Color de texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: 700; /* Peso de fuente más audaz */
+    transition: color 0.3s, transform 0.3s, background-color 0.3s; /* Transiciones suaves */
+    font-size: 1rem; /* Tamaño de fuente ajustado */
+    display: flex; /* Para alinear iconos y texto */
+    align-items: center;
+    padding: 10px 20px; /* Espaciado interno más ajustado */
+    border-radius: 25px; /* Bordes redondeados en enlaces */
+    position: relative; /* Para efecto de pseudo-elemento */
+}
+
+  /* Efecto Hover */
+.menu-inferior a:hover {
+    color: #ffd700; /* Cambia a dorado al pasar el mouse */
+    transform: translateY(-5px); /* Eleva ligeramente el enlace */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo claro al pasar el mouse */
+}
+
+  /* Efecto Activo (clic) */
+.menu-inferior a:active {
+    transform: translateY(2px); /* Baja ligeramente al hacer clic */
+    color: #ff4500; /* Cambia a un color naranja */
+}
+
+  /* Pseudo-elemento para un efecto visual adicional */
+.menu-inferior a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: #ffd700; /* Línea dorada */
+    transition: width 0.3s, left 0.3s; /* Transiciones suaves */
+}
+
+.menu-inferior a:hover::after {
+    width: 100%; /* Línea se expande al pasar el mouse */
+    left: 0; /* Alinear a la izquierda */
+}
+
+  /* Media Queries para Responsividad */
+@media (max-width: 600px) {
+    .menu-inferior {
+        width: calc(100% - 20px); /* Ajustar el ancho para pantallas pequeñas */
+        padding: 15px 0; /* Reducir el padding en pantallas pequeñas */
+    }
+
+.menu-inferior a {
+        font-size: 0.9rem; /* Tamaño de fuente más pequeño en móviles */
+        padding: 8px 15px; /* Reducir espaciado interno */
+    }
+
+    .menu-inferior .menu {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center; /* Centrar los elementos */
+    }
+}
+
+@media (max-width: 400px) {
+    .menu-inferior a {
+        font-size: 0.8rem; /* Tamaño de fuente aún más pequeño */
+    }
+}
+
+
+/* Sección de Contacto */
+#contacto {
+
+    color: #f0f0f0;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 4px solid #0349ca;
+    animation: fadeInContact 1.5s ease-in;
+}
+
+@keyframes fadeInContact {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#contacto h2 {
+    font-size: 2rem;
+    color: #81bbe4;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+#contacto p {
+    font-size: 1.5rem;
+    margin: 0 auto 2rem;
+    max-width: 800px;
+    color: #dcdcdc;
+    text-align: justify;
+}
+
+.contacto-container {
+    margin-bottom: 2rem;
+}
+
+.mensaje-confirmacion {
+    display: none;
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: #FFF;
+    background-color: #28a745;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+.mensaje-confirmacion.show {
+    display: block;
+}
+
+.mensaje-confirmacion:hover {
+    transform: translateY(-3px);
+}
+
+.boton-contacto {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.boton-contacto a {
+    padding: 15px 20px;
+    font-size: 1.5em;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+#whatsapp-btn {
+    background-color: #25D366;
+    color: white;
+}
+
+#whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+}
+
+#gmail-btn {
+    background-color: #f11805;
+    color: white;
+}
+
+#gmail-btn:hover {
+    background-color: #C13524;
+    transform: translateY(-3px);
+}
+
+.mensaje-agradecimiento {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #f1f1f1;
+}
+
+/* Media Queries para Contacto */
+@media (max-width: 600px) {
+    #contacto {
+        padding: 2rem 1rem;
+    }
+
+    .contacto-container {
+        margin-bottom: 1rem;
+    }
+
+    .mensaje-agradecimiento {
+        font-size: 1em;
+    }
+
+    /* Ajustes para los botones de contacto */
+    .boton-contacto a {
+        font-size: 1.2em;
+        padding: 12px 15px;
+    }
+
+    /* Ajustes a la confirmación de mensaje */
+    .mensaje-confirmacion {
+        font-size: 1.2em;
+        padding: 12px;
+    }
+}
+
+.contact-form button:hover {
+    background-color: #81bbe4;
+    transform: translateY(-5px);
+}
+
+.contact-form button:active {
+    transform: translateY(2px);
+}
+
+/* Media Queries para Contacto */
+@media (max-width: 600px) {
+    #contacto {
+        padding: 2rem 1rem;
+    }
+
+    .contact-form {
+        gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-form button {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #1C1F33;
+    text-align: center;
+    padding: 6.5rem;
+    color: #fff;
+    border-top: 4px solid #0349ca;
+    font-size: 0.9rem;
+    animation: fadeInFooter 1s ease-in;
+}
+
+@keyframes fadeInFooter {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

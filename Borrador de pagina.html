@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Misión, Visión y Valores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600;700&display=swap" rel="stylesheet">
+  </noscript>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="sectionWrapper">
+    <section class="swiper">
+      
+      <!-- Video de fondo -->
+      <div class="parallax-bg">
+        <video autoplay muted loop playsinline id="background-video" aria-label="Video de presentación de la empresa" poster="imagenes/poster.jpg">
+          <source src="imagenes/Video de Empresa.mp4" type="video/mp4">
+          Tu navegador no soporta videos.
+        </video>
+      </div>
+
+      <section id="logo-container" class="logo-container fade-in">
+        <img src="imagenes/logo12.webp" alt="Logo de Payroll Consulting Aztec" class="logo">
+        <h2 class="company-name fade-in">SOBRE NOSOTROS</h2>
+      </section>
+
+      <!-- Contenedor de tarjetas -->
+      <div class="swiper-wrapper">
+        <!-- Tarjeta Misión -->
+        <div class="swiper-slide card-container">
+          <div class="cardPopout">
+            <div class="line-animation"></div> <!-- Añadido para líneas animadas -->
+            <img src="imagenes/img4.jpg" alt="Representación visual de la misión de la empresa">
+            <h2 class="title">Misión</h2>
+            <p class="text-content1">
+              Somos una empresa en proporcionar soluciones integrales y de valor agregado en tecnologías de la información, 
+              especializándonos en la gestión eficiente de nóminas y recursos humanos. Impulsando el crecimiento sostenible de nuestros 
+              clientes a través de prácticas innovadoras y eficientes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tarjeta Visión -->
+        <div class="swiper-slide card-container">
+          <div class="cardPopout">
+            <div class="line-animation"></div> <!-- Añadido para líneas animadas -->
+            <img src="imagenes/img5.jpg" alt="Representación visual de la visión de la empresa">
+            <h2 class="title">Visión</h2>
+            <p class="text-content2">
+              Ser la empresa líder en soluciones tecnológicas para la gestión de nóminas y recursos 
+              humanos en México, reconocida por su innovación, eficiencia y capacidad de adaptación a 
+              los desafíos del entorno global. Nos comprometemos a transformar continuamente nuestros 
+              servicios, manteniéndonos a la vanguardia de las tecnologías de la información para 
+              garantizar el éxito sostenible de nuestros clientes y el desarrollo de nuestros colaboradores.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tarjeta Valores -->
+        <div class="swiper-slide card-container">
+          <div class="cardPopout">
+            <div class="line-animation"></div> <!-- Añadido para líneas animadas -->
+            <img src="imagenes/img6.jpg" alt="Representación visual de los valores de la empresa">
+            <h2 class="title">Valores</h2>
+            <ul class="text-content3">
+              <li><strong>Innovación:</strong> Nos adaptamos a las últimas tendencias tecnológicas, buscando siempre soluciones creativas y eficientes para nuestros clientes.</li>
+              <li><strong>Calidad:</strong> Ofrecemos servicios de alto valor, garantizando la precisión y excelencia en cada uno de nuestros procesos.</li>
+              <li><strong>Compromiso:</strong> Estamos dedicados al éxito de nuestros clientes y colaboradores, trabajando con responsabilidad y dedicación.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </section>
+  </section>
+
+  <!-- Sección de contacto -->
+  <section id="contacto" class="contacto">
+    <h2>Contáctanos</h2>
+    <div class="contacto-container">
+        <div class="mensaje-confirmacion" id="mensaje-confirmacion">
+            ¡Gracias por contactarnos! Nos pondremos en contacto contigo pronto.
+        </div>
+    </div>
+    <div class="boton-contacto">
+        <a href="https://wa.me/525611440781" target="_blank" id="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> 
+        </a>
+        <a href="mailto:julio.martinez@payrollconsulting.com.mx" id="gmail-btn">
+            <i class="fas fa-envelope"></i> 
+        </a>
+    </div>
+    <p class="mensaje-agradecimiento">Agradecemos su interés en nuestros servicios. Nos comprometemos a brindarle la atención y calidad que usted merece.</p>
+  </section>
+
+  <!-- Menú inferior -->
+  <section class="menu-inferior">
+    <nav>
+        <ul class="menu">
+            <li><a href="pantalla1.html"><i class="fas fa-home"></i>&nbsp; Inicio</a></li>
+            <li><a href="#contacto"><i class="fas fa-envelope"></i>&nbsp; Contacto</a></li>
+        </ul>
+    </nav>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Payroll Consulting Aztec. Todos los derechos reservados.</p>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script> <!-- Asegúrate de tener tu script.js -->
+</body>
+</html>

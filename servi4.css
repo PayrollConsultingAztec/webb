@@ -1,0 +1,1027 @@
+/* General */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #051338; /* Fondo oscuro */
+    color: #f0f0f0; /* Texto blanco */
+    box-sizing: border-box;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Altura inicial */
+    background: -webkit-linear-gradient(#97c9fc, #051338); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(#97c9fc, #051338); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    padding: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    box-shadow: 1 2px 20px rgba(138, 138, 145, 0.7);
+    animation: expand 3s forwards; /* Animación de expansión */
+}
+
+@keyframes expand {
+    0% {
+        height: 100vh;
+    }
+    100% {
+        height: 80px; /* Altura fija del header */
+    }
+}
+
+.logo {
+    width: 130px; /* Ancho fijo */
+    height: auto;
+    margin-right: 15px;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px rgb(255, 254, 254));
+}
+
+a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 20px;
+    transition: color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+.company-name {
+    font-size: 3rem; /* Tamaño de fuente grande */
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 5px; /* Espaciado entre letras */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #81bbe4;
+    animation: fadeInOut 5s ease-in-out infinite; /* Animación de desvanecimiento */
+    animation-delay: 1s;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .logo-container {
+        padding: 20px; /* Reducir padding en pantallas pequeñas */
+    }
+
+    .company-name {
+        font-size: 2rem; /* Tamaño más pequeño en pantallas pequeñas */
+        letter-spacing: 3px; /* Ajustar espaciado en pantallas pequeñas */
+    }
+
+    .logo {
+        width: 30%; /* Ajustar el tamaño del logo en pantallas pequeñas */
+        max-width: 100px; /* Limitar el tamaño máximo del logo */
+    }
+}
+
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 1.5rem; /* Tamaño aún más pequeño en pantallas muy pequeñas */
+    }
+
+    .logo {
+        width: 40%; /* Ajustar el tamaño del logo en pantallas muy pequeñas */
+    }
+}
+
+/*/* Paleta de colores */
+:root {
+    --color-primary: #97c9fc;
+    --color-secondary: #051338;
+    --color-light: #f3f9ff;
+    --color-accent: #4682b4;
+}
+
+/* Estilo general de la sección */
+.service-section {
+    position: relative;
+    color: var(--color-light);
+    text-align: center;
+    padding: 250px 20px;
+    overflow: hidden;
+    margin-top: 130px;
+    border-radius: 10px;
+}
+
+/* Fondo animado */
+#background-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient( #051338, #97c9fc);
+    height: 100%;
+    z-index: 0;
+}
+
+/* Contenido */
+.service-header {
+    position: relative;
+    z-index: 1;
+}
+
+.service-header h2 {
+    font-size: 3rem; /* Mayor tamaño para darle protagonismo */
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    color:#070669;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #7d79f7; 
+    letter-spacing: 1.5px;
+    transition: color 0.6s ease-in-out, transform 0.6s ease-in-out, text-shadow 0.6s ease-in-out; /* Transición más suave */
+}
+
+.service-header p {
+    font-size: 2rem; /* Un poco más grande para mayor legibilidad */
+    line-height: 1.8;
+    margin: 0 auto;
+    max-width: 700px; /* Espacio más amplio para el texto */
+    opacity: 0.8;
+    color:#ebebf5;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* Transición fluida */
+}
+
+/* Interacción con el contenedor */
+.service-section:hover h2 {
+    color:#051338;
+    transform: translateY(-10px) scale(1.1); /* Aumento y desplazamiento más suave */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #b9b9c7;
+}
+
+.service-section:hover p {
+    opacity: 1; /* Hace que el párrafo sea completamente visible */
+    transform: translateY(-15px); /* Movimiento más fluido hacia arriba */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #b9b9c7;
+}
+
+/* Fondo de la sección durante hover */
+.service-section:hover {
+    background: linear-gradient(135deg, #051338, #4682b4); /* Cambio suave en el fondo */
+}
+
+
+
+#servicios-section {
+    position: relative;
+    padding: 180px 20px;
+    text-align: center;
+    margin-top: 3%;
+
+}
+
+#servicios-section h2 {
+    font-size: 3rem;
+    margin-bottom: 60px;
+    color: #ffffff; /* Color base del texto */
+    background: linear-gradient(90deg, #81bbe4, #ffffff, #81bbe4); /* Gradiente dinámico */
+    background-size: 300%; /* Amplitud del gradiente */
+    background-clip: text; /* Aplica el gradiente al texto */
+    -webkit-background-clip: text; /* Compatibilidad WebKit */
+    -webkit-text-fill-color: transparent; /* Hace el fondo del texto transparente */
+    position: relative;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(129, 187, 228, 0.6); /* Resplandor inicial */
+    animation: gradient-wave 5s ease-in-out infinite, fade-in 1.5s ease-out; /* Ondulación + Entrada suave */
+    cursor: pointer; /* Indicador interactivo */
+}
+
+#servicios-section h2:hover {
+    transform: scale(1.02); /* Incremento sutil al pasar el cursor */
+    text-shadow: 0 0 30px rgba(129, 187, 228, 0.8), 0 0 50px #81bbe4; /* Aumenta el resplandor */
+    animation: gradient-wave 2s ease-in-out infinite; /* Acelera la animación en hover */
+}
+
+/* Animación del gradiente en forma de onda */
+@keyframes gradient-wave {
+    0% {
+        background-position: 0%;
+    }
+    50% {
+        background-position: 150%;
+    }
+    100% {
+        background-position: 0%;
+    }
+}
+
+/* Animación de entrada (fade-in) */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#network-canvas {
+    width: 100%;    /* Asegura que el canvas ocupe todo el ancho del contenedor */
+    height: 100%;   /* Asegura que el canvas ocupe todo el alto del contenedor */
+    display: block; /* Evita cualquier espacio adicional debajo del canvas */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none; /* Las partículas no interfieren con el contenido */
+}
+.service-canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;  /* Asegura que el canvas esté detrás del contenido */
+    pointer-events: none; /* Impide que el canvas interfiera con la interacción del usuario */
+}
+
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* Base para todas las tarjetas */
+.service {
+    width: 600px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animación en hover para todas las tarjetas */
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(212, 204, 204, 0.822);
+}
+
+/* Efecto único: Migración de Sistemas y nomina */
+.service-migracion ,
+.service-nomina {
+    background: linear-gradient(135deg, #bcd6fd50, #cfd9df36);
+    border: 2px solid #81bbe4;
+    animation: pulse 2s infinite;
+}
+.service-migracion p,.service-nomina p {
+    font-size: 1.5rem;
+    color: #eceaea;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #81bbe4; /* Resalta el nombre con sombra sutil */
+}
+.service-migracion h3,
+.service-nomina h3 {
+    font-size: 2rem;
+    color: #a6c9eb;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #81bbe4; /* Resalta el nombre con sombra sutil */
+}
+
+
+/* Animaciones */
+@keyframes gradient-move {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(129, 187, 228, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(129, 187, 228, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(129, 187, 228, 0.5);
+    }
+}
+
+
+/* Estilo para el contenedor principal */
+.parte-2 {
+    position: relative;
+    margin-top: 3%;
+    width: 100%;
+    min-height: 100%; /* Asegura que el contenedor ocupe al menos toda la altura de la ventana */
+    display:list-item; /* Usado para centrar el contenido */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+
+/* Estilo para el canvas */
+#rainfall-special {
+    top: 0;
+    left: 0;
+    background: linear-gradient(#000000, #d9dbe227); /* Degradado azul a gris */
+    z-index: -1; /* Asegura que el canvas esté detrás de otros elementos */
+    width: 100%; /* Asegúrate de que ocupe todo el ancho del contenedor */
+    height: 100%; /* Asegúrate de que ocupe toda la altura del contenedor */
+    opacity: 0.5; /* Ajusta la opacidad para dar un efecto sutil */
+    position: absolute;
+    pointer-events: none; /* Las partículas no interfieren con el contenido */
+}
+
+
+
+/* Estilo para el título */
+.titulo-futurista {
+    font-size: 3rem; /* Tamaño de fuente grande */
+    margin: 90px 10px; /* Ajustado a un margen más pequeño */
+    padding: 40px; /* Ajustado a un espaciado interno más pequeño */
+    color: #dbe9e6; /* Color del texto */
+    text-align: center; /* Centra el texto */
+    position: relative; /* Posicionamiento relativo */
+    overflow: hidden; /* Oculta el desbordamiento */
+    letter-spacing: 5px; /* Espaciado entre letras amplio */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #81bbe4; /* Resalta el nombre con sombra sutil */
+    background: linear-gradient(90deg, #2da5eb46, rgba(0, 0, 0, 0.7)); /* Degradado de fondo */
+    border: 2px solid #00ffcc; /* Borde verde neón */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 0 20px #2da5eb80; /* Sombra de brillo */
+}
+
+/* Efecto de fondo animado */
+.titulo-futurista::after {
+    content: ""; /* Crea un pseudo-elemento */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; /* Parte superior */
+    left: 0; /* Parte izquierda */
+    right: 0; /* Parte derecha */
+    bottom: 0; /* Parte inferior */
+    background: rgba(0, 255, 204, 0.2); /* Fondo semitransparente */
+    border-radius: 15px; /* Bordes redondeados */
+    z-index: -1; /* Coloca detrás del texto */
+    animation: glitch 1.5s infinite; /* Animación de glitch */
+}
+
+/* Animación de glitch */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Estilo para el contenedor de las tarjetas */
+.especialidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Tamaño mínimo */
+    gap: 50px; /* Ajustado a un espaciado más pequeño */
+    padding: 120px 20px;
+    z-index: 1; /* Asegura que las tarjetas estén encima del canvas */
+    position: relative;
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+/* Estilos para las tarjetas de especialidades */
+.especialidad-card {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 8px 20px #2da5eb80; /* Sombra verde neón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px; /* Altura de la tarjeta */
+}
+
+/* Efecto hover sobre las tarjetas */
+.especialidad-card:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta al pasar el mouse */
+    box-shadow: 0 12px 30px #3aaceec5; /* Sombra más intensa al hacer hover */
+}
+
+/* Estilos para el encabezado de las tarjetas */
+.card-header {
+    background-color: #509cc9ef; /* Fondo verde neón */
+    padding: 15px;
+    text-align: center;
+    color: black; /* Color del texto negro para contraste */
+    text-shadow: 2px 2px 8px rgba(141, 141, 141, 0.9), 0 0 25px #e5e7e9; /* Resalta el nombre con sombra sutil */
+    font-size: 1.5rem; /* Tamaño de fuente más grande */
+    font-weight: bold;
+    border-radius: 8px 8px 0 0; /* Redondea solo la parte superior */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+/* Estilos para el cuerpo de las tarjetas */
+.card-body {
+    flex-grow: 1; /* Asegura que el cuerpo ocupe el espacio restante */
+    padding: 15px;
+    font-size: 1.5rem; /* Tamaño de fuente */
+    color: #ffffff; /* Color del texto blanco */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro y transparente */
+    border-radius: 0 0 12px 12px; /* Redondeo de las esquinas inferiores */
+}
+
+/* Responsivo para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .titulo-futurista {
+        font-size: 2rem; /* Tamaño de fuente ajustado */
+        margin: 50px 0; /* Menos margen */
+        padding: 20px; /* Ajuste de padding */
+    }
+
+    .especialidades-grid {
+        gap: 20px; /* Menor espacio entre tarjetas */
+    }
+
+    .card-header {
+        padding: 10px; /* Menos espacio en pantallas pequeñas */
+    }
+
+    .card-body {
+        font-size: 1rem; /* Tamaño de fuente ajustado en pantallas pequeñas */
+    }
+}
+
+/* Estilo para la sección "¿Por qué elegirnos?" */
+.porque-si {
+    position: relative;
+    overflow: hidden; /* Oculta el contenido fuera de los límites */
+    padding: 190px 20px; /* Espaciado interno */
+    text-align: center; /* Centra el texto */
+}
+
+/* Texto en la sección */
+.porque-si h2 {
+    font-size: 3rem; /* Tamaño de fuente grande */
+    margin: 0px 20px; /* Ajustado a un margen más pequeño */
+    padding: 40px; /* Ajustado a un espaciado interno más pequeño */
+    color: #dbe9e6; /* Color del texto */
+    text-align: center; /* Centra el texto */
+    position: relative; /* Posicionamiento relativo */
+    overflow: hidden; /* Oculta el desbordamiento */
+    letter-spacing: 5px; /* Espaciado entre letras amplio */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #81bbe4; /* Resalta el nombre con sombra sutil */
+    background: linear-gradient(#080808, #09205e, #97c9fc4f); /* Degradado de fondo */
+    border: 2px solid #3c83e0; /* Borde verde neón */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 0 20px rgba(45, 165, 235, 0.5); /* Sombra de brillo */
+
+}
+
+/* Animación del fondo */
+@keyframes gradient-animate {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.porque-si::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, #1e3799, #4a69bd, #68818d, #74a0d194);
+    background-size: 300% 300%;
+    z-index: -1; /* Detrás del contenido */
+    animation: gradient-animate 8s ease-in-out infinite;
+    opacity: 0.7; /* Hace el fondo semi-transparente */
+}
+
+
+/* Contenedor para centrar el contenido */
+.container {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+}
+/* Estilo para el título */
+.porque-si h2 {
+    font-size: 3rem; /* Tamaño de fuente grande */
+    margin-bottom: 20px; /* Margen inferior */
+    color: #8cb7e2; /* Gris oscuro */
+    text-shadow: 2px 2px 8px rgba(141, 141, 141, 0.9), 0 0 25px #e5e7e9; /* Sombra sutil */
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilo para los beneficios */
+.beneficios {
+    display: flex; /* Usa flexbox para alinear los beneficios */
+    flex-wrap: wrap; /* Permite que los beneficios se envuelvan en varias líneas */
+    justify-content: center; /* Centra los beneficios */
+    gap: 20px; /* Espaciado entre beneficios */
+}
+
+/* Estilo para cada beneficio */
+.beneficio {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(251, 253, 253, 0.637); /* Sombra sutil */
+    padding: 20px; /* Espaciado interno */
+    margin-top: 5%;
+    width: 300px; /* Ancho fijo */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transición suave */
+}
+
+.beneficio:hover {
+    transform: translateY(-5px); /* Eleva el beneficio al pasar el mouse */
+    box-shadow: 0 6px 20px rgba(131, 130, 130, 0.2); /* Sombra más intensa al hacer hover */
+}
+
+/* Estilo para los íconos y texto */
+.icono {
+    font-size: 3rem; /* Tamaño de ícono grande */
+    margin-bottom: 10px; /* Margen inferior */
+    color: #e1e4e6; /* Color del ícono */
+    text-shadow: 2px 2px 8px rgba(141, 141, 141, 0.9), 0 0 25px #e5e7e9; /* Sombra sutil */
+}
+
+.texto {
+    font-size: 1.5rem; /* Tamaño de fuente */
+    color: #e7e2e2; /* Color del texto */
+    line-height: 1.5; /* Espaciado de línea */
+}
+
+/* Animación del fondo */
+@keyframes gradient-animate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.porque-si::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 150%; /* Ampliar para cubrir mejor la animación */
+    background: linear-gradient(120deg, #051338, #09205e, #2d3031, #97c9fc);
+    background-size: 300% 300%;
+    z-index: -1; /* Detrás del contenido */
+    animation: gradient-animate 6s linear infinite;
+    opacity: 0.8; /* Fondo semi-transparente */
+}
+
+/* Animación de formas flotantes */
+.floating-shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2); /* Blanco semitransparente */
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite, move-diagonal 12s linear infinite;
+    mix-blend-mode: overlay; /* Mezcla con el fondo */
+}
+
+/* Formas específicas con tamaños y posiciones */
+.floating-shape:nth-child(1) { width: 150px; height: 150px; top: 20%; left: 10%; }
+.floating-shape:nth-child(2) { width: 100px; height: 100px; top: 40%; right: 15%; animation-delay: 1.5s; }
+.floating-shape:nth-child(3) { width: 200px; height: 200px; bottom: 10%; left: 20%; animation-delay: 3s; }
+.floating-shape:nth-child(4) { width: 120px; height: 120px; top: 30%; left: 70%; animation-delay: 2s; }
+.floating-shape:nth-child(5) { width: 180px; height: 180px; bottom: 15%; right: 10%; animation-delay: 4s; }
+
+/* Animaciones */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes move-diagonal {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(50px, 50px) rotate(180deg); }
+}
+
+.beneficiooo {
+    position: relative;
+    overflow: hidden;
+    padding: 120px 20px;
+    text-align: center;
+}
+
+#canvas-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: lineMovement 20s infinite linear; /* Mover la animación aquí */
+}
+
+.content {
+    z-index: 1;
+}
+
+/* Importar fuente */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.content h2 {
+    font-size: clamp(2rem, 5vw, 3rem); /* Tamaño responsivo */
+    margin-bottom: 20px;
+    color: #0ef; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    position: relative; /* Para el efecto de fondo */
+    overflow: hidden; /* Para el efecto de corte */
+    animation: text-flicker 1.5s infinite alternate; /* Animación de parpadeo */
+}
+
+@keyframes text-flicker {
+    0% {
+        text-shadow: 
+            0 0 5px rgba(0, 255, 255, 0.8), 
+            0 0 10px rgba(0, 255, 255, 0.6), 
+            0 0 15px rgba(0, 255, 255, 0.4);
+    }
+    100% {
+        text-shadow: 
+            0 0 20px rgba(0, 255, 255, 1), 
+            0 0 30px rgba(0, 255, 255, 0.8), 
+            0 0 40px rgba(0, 255, 255, 0.6);
+    }
+}
+
+.benefit-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajuste responsivo */
+    gap: 15px; /* Menor espaciado */
+    margin-top: 60px;
+}
+
+.card {
+    background: rgba(44, 47, 51, 0.1); /* Fondo semi-transparente */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(228, 230, 231, 0.425);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    perspective: 1000px;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .benefit-cards {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste para pantallas más pequeñas */
+    }
+    
+    .card {
+        padding: 15px; /* Ajuste de padding */
+    }
+}
+
+.card:hover {
+    transform: rotateY(10deg) rotateX(10deg);
+    box-shadow: 0 20px 40px rgba(7, 233, 233, 0.3);
+}
+
+.card h3 {
+    font-size: clamp(1.5rem, 4vw, 2rem); /* Tamaño responsivo */
+    color: #04e5b8;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #81bbe4; 
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: clamp(1rem, 3vw, 1.5rem); /* Tamaño responsivo */
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* Fondo de líneas animadas */
+@keyframes lineMovement {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Sección de Contacto */
+#contacto {
+
+    color: #f0f0f0;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 4px solid #0349ca;
+    animation: fadeInContact 1.5s ease-in;
+}
+
+@keyframes fadeInContact {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#contacto h2 {
+    font-size: 2rem;
+    color: #81bbe4;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+#contacto p {
+    font-size: 1.5rem;
+    margin: 0 auto 2rem;
+    max-width: 800px;
+    color: #dcdcdc;
+    text-align: justify;
+}
+
+.contacto-container {
+    margin-bottom: 2rem;
+}
+
+.mensaje-confirmacion {
+    display: none;
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: #FFF;
+    background-color: #28a745;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+.mensaje-confirmacion.show {
+    display: block;
+}
+
+.mensaje-confirmacion:hover {
+    transform: translateY(-3px);
+}
+
+.boton-contacto {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.boton-contacto a {
+    padding: 15px 20px;
+    font-size: 1.5em;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+#whatsapp-btn {
+    background-color: #25D366;
+    color: white;
+}
+
+#whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+}
+
+#gmail-btn {
+    background-color: #f11805;
+    color: white;
+}
+
+#gmail-btn:hover {
+    background-color: #C13524;
+    transform: translateY(-2px);
+}
+
+.mensaje-agradecimiento {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #f1f1f1;
+}
+
+/* Media Queries para Contacto */
+@media (max-width: 600px) {
+    #contacto {
+        padding: 2rem 1rem;
+    }
+
+    .contacto-container {
+        margin-bottom: 1rem;
+    }
+
+    .mensaje-agradecimiento {
+        font-size: 1em;
+    }
+
+    /* Ajustes para los botones de contacto */
+    .boton-contacto a {
+        font-size: 1.2em;
+        padding: 12px 15px;
+    }
+
+    /* Ajustes a la confirmación de mensaje */
+    .mensaje-confirmacion {
+        font-size: 1.2em;
+        padding: 12px;
+    }
+}
+
+.contact-form button:hover {
+    background-color: #81bbe4;
+    transform: translateY(-5px);
+}
+
+.contact-form button:active {
+    transform: translateY(2px);
+}
+
+/* Media Queries para Contacto */
+@media (max-width: 600px) {
+    #contacto {
+        padding: 2rem 1rem;
+    }
+
+    .contact-form {
+        gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-form button {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}
+
+.menu-inferior {
+    background: linear-gradient(145deg, #8b96e7, #1d1d2b); /* Degradado vibrante */
+    border-radius: 40px; /* Bordes muy redondeados */
+    position: fixed; /* Fijo en la parte inferior */
+    bottom: 20px; /* Ajustado para posicionarlo más arriba */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Ajustar para centrar */
+    width: calc(100% - 40px); /* Ajustar para tener márgenes laterales */
+    max-width: 1200px; /* Ancho máximo */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Sombra más intensa */
+    z-index: 1; /* Asegúrate de que esté encima de otros elementos */
+    padding: 10px 0; /* Espaciado vertical */
+    backdrop-filter: blur(25px); /* Efecto de desenfoque de fondo más fuerte */
+    transition: background 0.5s, transform 0.3s, bottom 0.5s ease-in-out, opacity 0.3s; /* Añadir animación para "bottom" y "opacity" */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil para un toque HD */
+    opacity: 1; /* Asegura que el menú sea visible al principio */
+    transform-origin: center center; /* Establecer el centro como origen de las transformaciones */
+}
+
+.menu-inferior:hover {
+    background: linear-gradient(135deg, #1d1d2b, #3a3e5b);
+    transform: translateY(-10px) translateX(-50%); /* Mantener el centramiento al hacer hover */
+    opacity: 0.9; /* Reduce ligeramente la opacidad al hacer hover */
+}
+
+  /* Agregar animación al menú cuando se carga la página */
+@keyframes slideUp {
+    0% {
+      bottom: -100px; /* Comienza fuera de la pantalla */
+      opacity: 0; /* Invisible al inicio */
+    }
+    100% {
+      bottom: 20px; /* Se coloca en su posición final */
+      opacity: 1; /* Visibilidad completa */
+    }
+}
+
+.menu-inferior {
+    animation: slideUp 1s ease-out forwards; /* Aplica la animación al menú */
+}
+
+.menu-inferior nav {
+    display: flex; /* Flexbox para alinear los elementos */
+    justify-content: space-around; /* Espaciado uniforme entre elementos */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+}
+.menu-inferior .menu {
+    list-style: none; /* Sin viñetas */
+    padding: 0; /* Sin padding */
+    margin: 0; /* Sin margen */
+    display: flex; /* Para alinear horizontalmente */
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten en pantallas pequeñas */
+    justify-content: center; /* Centrar los elementos */
+}
+
+.menu-inferior .menu li {
+    margin: 5px; /* Añadir márgenes para evitar que los elementos se amontonen */
+}
+
+.menu-inferior a {
+    color: #ffffff; /* Color de texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: 700; /* Peso de fuente más audaz */
+    transition: color 0.3s, transform 0.3s, background-color 0.3s; /* Transiciones suaves */
+    font-size: 1rem; /* Tamaño de fuente ajustado */
+    display: flex; /* Para alinear iconos y texto */
+    align-items: center;
+    padding: 10px 20px; /* Espaciado interno más ajustado */
+    border-radius: 25px; /* Bordes redondeados en enlaces */
+    position: relative; /* Para efecto de pseudo-elemento */
+}
+
+  /* Efecto Hover */
+.menu-inferior a:hover {
+    color: #ffd700; /* Cambia a dorado al pasar el mouse */
+    transform: translateY(-5px); /* Eleva ligeramente el enlace */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo claro al pasar el mouse */
+}
+
+  /* Efecto Activo (clic) */
+.menu-inferior a:active {
+    transform: translateY(2px); /* Baja ligeramente al hacer clic */
+    color: #ff4500; /* Cambia a un color naranja */
+}
+
+  /* Pseudo-elemento para un efecto visual adicional */
+.menu-inferior a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: #ffd700; /* Línea dorada */
+    transition: width 0.3s, left 0.3s; /* Transiciones suaves */
+}
+
+.menu-inferior a:hover::after {
+    width: 100%; /* Línea se expande al pasar el mouse */
+    left: 0; /* Alinear a la izquierda */
+}
+
+  /* Media Queries para Responsividad */
+@media (max-width: 600px) {
+    .menu-inferior {
+        width: calc(100% - 20px); /* Ajustar el ancho para pantallas pequeñas */
+        padding: 15px 0; /* Reducir el padding en pantallas pequeñas */
+    }
+
+.menu-inferior a {
+        font-size: 0.9rem; /* Tamaño de fuente más pequeño en móviles */
+        padding: 8px 15px; /* Reducir espaciado interno */
+    }
+
+    .menu-inferior .menu {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center; /* Centrar los elementos */
+    }
+}
+
+@media (max-width: 400px) {
+    .menu-inferior a {
+        font-size: 0.8rem; /* Tamaño de fuente aún más pequeño */
+    }
+}
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 5rem ;
+    background-color: #1c1f33;
+    margin-bottom: 0.1%;
+    color: #dcdcdc;
+    font-size: 1rem;
+    animation: fadeInContact 1.5s ease-in
+}

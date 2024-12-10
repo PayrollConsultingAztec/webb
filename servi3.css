@@ -1,0 +1,932 @@
+/* General Styles */
+body {
+    line-height: 1.6;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #051338; /* Fondo principal */
+    color: #f0f0f0; /* Color claro para contraste */
+    overflow-x: hidden;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Altura inicial */
+    background: -webkit-linear-gradient(#97c9fc, #051338); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(#97c9fc, #051338); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    padding: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    box-shadow: 1 2px 20px rgba(138, 138, 145, 0.7);
+    animation: expand 3s forwards; /* Animación de expansión */
+}
+
+@keyframes expand {
+    0% {
+        height: 100vh;
+    }
+    100% {
+        height: 80px; /* Altura fija del header */
+    }
+}
+
+.logo {
+    width: 130px; /* Ancho fijo */
+    height: auto;
+    margin-right: 15px;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px rgb(255, 254, 254));
+}
+
+a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 20px;
+    transition: color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+.company-name {
+    font-size: 3rem; /* Tamaño de fuente grande */
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 5px; /* Espaciado entre letras */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #81bbe4;
+    animation: fadeInOut 5s ease-in-out infinite; /* Animación de desvanecimiento */
+    animation-delay: 1s;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .logo-container {
+        padding: 20px; /* Reducir padding en pantallas pequeñas */
+    }
+
+    .company-name {
+        font-size: 2rem; /* Tamaño más pequeño en pantallas pequeñas */
+        letter-spacing: 3px; /* Ajustar espaciado en pantallas pequeñas */
+    }
+
+    .logo {
+        width: 30%; /* Ajustar el tamaño del logo en pantallas pequeñas */
+        max-width: 100px; /* Limitar el tamaño máximo del logo */
+    }
+}
+
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 1.5rem; /* Tamaño aún más pequeño en pantallas muy pequeñas */
+    }
+
+    .logo {
+        width: 40%; /* Ajustar el tamaño del logo en pantallas muy pequeñas */
+    }
+}
+
+
+/* Estilo para #introduccion */
+#introduccion {
+    color: #ffffff;
+    text-align: center;
+    margin-top: calc(15vh + 30px);
+    padding: 160px 20px;
+    margin-top: 120px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* Asegura que el contenido esté encima */
+    animation: fadeInContact 1.5s ease-in;
+}
+
+/* Contenedor de líneas */
+#lines-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; /* Asegura que las líneas estén detrás del contenido */
+}
+
+/* Líneas animadas */
+.line {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.075); /* Reducimos la opacidad para que no opaque tanto */
+    border-radius: 50%;
+    opacity: 0.5;
+    transform-origin: 0 0;
+    z-index: -1;
+    animation: drawLine 5s ease-in-out infinite, glowingEffect 5s infinite alternate; /* Aumento la duración */
+}
+
+/* Animación de "dibujar" la línea */
+@keyframes drawLine {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Efecto resplandeciente (más suave) */
+@keyframes glowingEffect {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Título dentro de introducción */
+#introduccion h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #90b6e2;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px rgba(0, 188, 212, 0.7);
+    z-index: 4; /* Asegura que el título esté por encima de las líneas */
+}
+
+/* Párrafo dentro de introducción */
+#introduccion ul {
+    font-size: 2rem;
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(0, 188, 212, 0.7);
+    margin-bottom: 2rem;
+    z-index: 2; /* Asegura que el párrafo esté por encima de las líneas */
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el relleno */
+    margin: 0; /* Elimina el margen */
+}
+
+
+
+/* Estilo general de la sección */
+#porque-elegirnos {
+    position: relative;
+    background: linear-gradient( #051338, #73b2f1); /* Fondo degradado profesional */
+    color: #ffffff;
+    overflow: hidden;
+    margin-top: calc(10vh + 1px);
+    padding: 140px 20px;
+    text-align: center;
+    z-index: 1;
+    animation: fadeInContact 1.5s ease-in;
+}
+
+/* Contenedor de partículas */
+#particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none; /* Las partículas no interfieren con el contenido */
+}
+
+/* Contenido principal */
+.content {
+    position: relative;
+    z-index: 1; /* Asegura que esté encima de las partículas */
+}
+
+/* Título */
+#porque-elegirnos h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #95c7ee;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.5); /* Efecto brillante */
+    animation: fadeInTitle 2s ease-out;
+}
+
+/* Párrafo */
+#porque-elegirnos p {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInParagraph 2.5s ease-out;
+}
+
+/* Animación de entrada para el título */
+@keyframes fadeInTitle {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de entrada para el párrafo */
+@keyframes fadeInParagraph {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    #porque-elegirnos h2 {
+        font-size: 2.5rem;
+    }
+    #porque-elegirnos p {
+        font-size: 1rem;
+    }
+}
+
+
+/* === Sección Servicios === */
+#servicios {
+    max-width:max-content;
+    margin-top: calc(4vh + 1px);
+    padding: 10px 10px;
+    border-radius: 10px;
+    animation: fadeInContact 1.5s ease-in;
+}
+
+#servicios h2 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #dee5ec;
+    margin-bottom: 5rem;
+    text-shadow: 0 0 40px rgba(0, 188, 212, 0.7);
+    z-index: 3;
+}
+
+#servicios h2::after {
+    content: '';
+    display: block;
+    width: 650px;
+    height: 3px;
+    background: #f2f4f5;
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* === Lista de Servicios === */
+#servicios ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+#servicios li {
+    flex: 1 1 calc(45% - 20px);
+    background: linear-gradient(135deg, #2d3031 0%, #2f43f3 100%);
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#servicios li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+#servicios li strong {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 10px;
+    color: #f9f9f9;
+}
+
+#servicios li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: rgba(192, 192, 192, 0.2);
+    transform: rotate(45deg);
+    animation: highlight 4s infinite linear;
+}
+
+@keyframes highlight {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* === Red Digital === */
+#servicios {
+    background: linear-gradient( #232324, #051338);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    animation: fadeInContact 1.5s ease-in
+}
+
+#servicios::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.253),
+        rgba(255, 255, 255, 0.1) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    animation: moveLines 8s linear infinite;
+}
+
+@keyframes moveLines {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-100px, -100px);
+    }
+}
+
+/* === Responsividad === */
+@media (max-width: 768px) {
+    #servicios ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #servicios li {
+        flex: 1 1 100%;
+    }
+}
+#beneficios {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 60px;
+    background-color: #0A0D1A; /* Fondo oscuro para crear un contraste fuerte */
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8); 
+    animation: fadeInContact 1.5s ease-in/* Sombra más profunda y sutil */
+}
+#beneficios {
+    width: 100%; /* Asegura que el contenedor se ajuste al tamaño de la pantalla */
+}
+
+#beneficios h2 {
+    font-size: 3.2rem;
+    margin-bottom: 30px;
+    letter-spacing: 6px;
+    background: linear-gradient(135deg, #97c9fc, #094ba1);
+    margin-bottom: 2.5rem;
+    text-shadow: 0 0 20px rgba(179, 212, 216, 0.7);
+    background-clip: text; /* Soporte más general */
+    -webkit-background-clip: text; /* Para Webkit browsers como Chrome y Safari */
+    color: transparent;
+    animation: textPulse 2.5s infinite ease-in-out;
+
+}
+
+@keyframes textPulse {
+    0%, 100% {
+        background-position: 0%;
+    }
+    50% {
+        background-position: 100%;
+    }
+}
+
+#beneficios ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.beneficio {
+    position: relative;
+    margin: 30px 0;
+    padding: 50px;
+    background: #97c9fc41; /* Fondo más oscuro y opaco */
+    border-radius: 15px;
+    font-size: 1.6rem;
+    color: #fff;
+    text-shadow: 0 0 20px rgb(43, 182, 197);
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s, background-color 0.5s, border-radius 0.4s;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.9); /* Sombras más sofisticadas */
+    opacity: 0.9;
+    overflow: hidden;
+    z-index: 1;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.beneficio:hover {
+    transform: translateY(-20px) scale(1.07); /* Efecto 3D más fuerte */
+    background-color: #97c9fc3f; /* Cambia el color al hacer hover */
+    box-shadow: 0 40px 100px rgba(103, 185, 185, 0.459); /* Sombra con más profundidad */
+    border-radius: 25px; /* Bordes más suaves al hacer hover */
+}
+.beneficio:hover {
+    transform: translateY(-10px) scale(.05); /* Escala y traslación más pequeñas */
+}
+.beneficio .icon {
+    font-size: 3rem;
+    color: #00B0FF;
+    animation: iconBounce 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes iconBounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+.beneficio h3 {
+    font-size: 1.5rem;
+    color: #FFF;
+    margin-top: 15px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.dots-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.dot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: #00b0ff;
+    border-radius: 50%;
+    animation: moveDots 25s infinite linear;
+    opacity: 0.6;
+}
+
+@keyframes moveDots {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100vw, 100vh);
+    }
+}
+
+.dots-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    border: 2px solid #00b0ff;
+    border-radius: 50%;
+    animation: pulse 4s infinite ease-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #beneficios {
+        padding: 25px;
+    }
+
+    #beneficios h2 {
+        font-size: 2rem;
+    }
+
+    .beneficio {
+        font-size: 1rem;
+        padding: 30px;
+    }
+
+    .beneficio .icon {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 768px) {
+    .beneficio {
+        font-size: 1rem;
+        padding: 20px;
+    }
+
+    .beneficio .icon {
+        font-size: 2rem;
+    }
+}
+
+/* Sección de Contacto */
+#contacto {
+
+    color: #f0f0f0;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 4px solid #0349ca;
+    animation: fadeInContact 1.5s ease-in;
+}
+
+@keyframes fadeInContact {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#contacto h2 {
+    font-size: 2rem;
+    color: #81bbe4;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+#contacto p {
+    font-size: 1.5rem;
+    margin: 0 auto 2rem;
+    max-width: 800px;
+    color: #dcdcdc;
+    text-align: justify;
+}
+
+.contacto-container {
+    margin-bottom: 2rem;
+}
+
+.mensaje-confirmacion {
+    display: none;
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: #FFF;
+    background-color: #28a745;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+.mensaje-confirmacion.show {
+    display: block;
+}
+
+.mensaje-confirmacion:hover {
+    transform: translateY(-3px);
+}
+
+.boton-contacto {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.boton-contacto a {
+    padding: 15px 20px;
+    font-size: 1.5em;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+#whatsapp-btn {
+    background-color: #25D366;
+    color: white;
+}
+
+#whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+}
+
+#gmail-btn {
+    background-color: #f11805;
+    color: white;
+}
+
+#gmail-btn:hover {
+    background-color: #C13524;
+    transform: translateY(-2px);
+}
+
+.mensaje-agradecimiento {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #f1f1f1;
+}
+
+/* Media Queries para Contacto */
+@media (max-width: 600px) {
+    #contacto {
+        padding: 2rem 1rem;
+    }
+
+    .contacto-container {
+        margin-bottom: 1rem;
+    }
+
+    .mensaje-agradecimiento {
+        font-size: 1em;
+    }
+
+    /* Ajustes para los botones de contacto */
+    .boton-contacto a {
+        font-size: 1.2em;
+        padding: 12px 15px;
+    }
+
+    /* Ajustes a la confirmación de mensaje */
+    .mensaje-confirmacion {
+        font-size: 1.2em;
+        padding: 12px;
+    }
+}
+
+.contact-form button:hover {
+    background-color: #81bbe4;
+    transform: translateY(-5px);
+}
+
+.contact-form button:active {
+    transform: translateY(2px);
+}
+
+/* Media Queries para Contacto */
+@media (max-width: 600px) {
+    #contacto {
+        padding: 2rem 1rem;
+    }
+
+    .contact-form {
+        gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-form button {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 5rem 0;
+    background-color: #1c1f33;
+    color: #dcdcdc;
+    font-size: 1rem;
+    animation: fadeInContact 1.5s ease-in
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .service-benefits {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .benefit-item {
+        padding: 1.5rem;
+    }
+
+    .use-cases {
+        padding: 3rem 2rem;
+    }
+
+    .use-case {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 2rem;
+    }
+
+    .service-header h3 {
+        font-size: 1.8rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .service-intro h2 {
+        font-size: 1.5rem;
+    }
+}
+
+.menu-inferior {
+    background: linear-gradient(145deg, #8b96e7, #1d1d2b); /* Degradado vibrante */
+    border-radius: 40px; /* Bordes muy redondeados */
+    position: fixed; /* Fijo en la parte inferior */
+    bottom: 20px; /* Ajustado para posicionarlo más arriba */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Ajustar para centrar */
+    width: calc(100% - 40px); /* Ajustar para tener márgenes laterales */
+    max-width: 1200px; /* Ancho máximo */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Sombra más intensa */
+    z-index: 1; /* Asegúrate de que esté encima de otros elementos */
+    padding: 10px 0; /* Espaciado vertical */
+    backdrop-filter: blur(25px); /* Efecto de desenfoque de fondo más fuerte */
+    transition: background 0.5s, transform 0.3s, bottom 0.5s ease-in-out, opacity 0.3s; /* Añadir animación para "bottom" y "opacity" */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil para un toque HD */
+    opacity: 1; /* Asegura que el menú sea visible al principio */
+    transform-origin: center center; /* Establecer el centro como origen de las transformaciones */
+}
+
+.menu-inferior:hover {
+    background: linear-gradient(135deg, #1d1d2b, #3a3e5b);
+    transform: translateY(-10px) translateX(-50%); /* Mantener el centramiento al hacer hover */
+    opacity: 0.9; /* Reduce ligeramente la opacidad al hacer hover */
+}
+
+  /* Agregar animación al menú cuando se carga la página */
+@keyframes slideUp {
+    0% {
+      bottom: -100px; /* Comienza fuera de la pantalla */
+      opacity: 0; /* Invisible al inicio */
+    }
+    100% {
+      bottom: 20px; /* Se coloca en su posición final */
+      opacity: 1; /* Visibilidad completa */
+    }
+}
+
+.menu-inferior {
+    animation: slideUp 1s ease-out forwards; /* Aplica la animación al menú */
+}
+
+.menu-inferior nav {
+    display: flex; /* Flexbox para alinear los elementos */
+    justify-content: space-around; /* Espaciado uniforme entre elementos */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+}
+.menu-inferior .menu {
+    list-style: none; /* Sin viñetas */
+    padding: 0; /* Sin padding */
+    margin: 0; /* Sin margen */
+    display: flex; /* Para alinear horizontalmente */
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten en pantallas pequeñas */
+    justify-content: center; /* Centrar los elementos */
+}
+
+.menu-inferior .menu li {
+    margin: 5px; /* Añadir márgenes para evitar que los elementos se amontonen */
+}
+
+.menu-inferior a {
+    color: #ffffff; /* Color de texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: 700; /* Peso de fuente más audaz */
+    transition: color 0.3s, transform 0.3s, background-color 0.3s; /* Transiciones suaves */
+    font-size: 1rem; /* Tamaño de fuente ajustado */
+    display: flex; /* Para alinear iconos y texto */
+    align-items: center;
+    padding: 10px 20px; /* Espaciado interno más ajustado */
+    border-radius: 25px; /* Bordes redondeados en enlaces */
+    position: relative; /* Para efecto de pseudo-elemento */
+}
+
+  /* Efecto Hover */
+.menu-inferior a:hover {
+    color: #ffd700; /* Cambia a dorado al pasar el mouse */
+    transform: translateY(-5px); /* Eleva ligeramente el enlace */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo claro al pasar el mouse */
+}
+
+  /* Efecto Activo (clic) */
+.menu-inferior a:active {
+    transform: translateY(2px); /* Baja ligeramente al hacer clic */
+    color: #ff4500; /* Cambia a un color naranja */
+}
+
+  /* Pseudo-elemento para un efecto visual adicional */
+.menu-inferior a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: #ffd700; /* Línea dorada */
+    transition: width 0.3s, left 0.3s; /* Transiciones suaves */
+}
+
+.menu-inferior a:hover::after {
+    width: 100%; /* Línea se expande al pasar el mouse */
+    left: 0; /* Alinear a la izquierda */
+}
+
+  /* Media Queries para Responsividad */
+@media (max-width: 600px) {
+    .menu-inferior {
+        width: calc(100% - 20px); /* Ajustar el ancho para pantallas pequeñas */
+        padding: 15px 0; /* Reducir el padding en pantallas pequeñas */
+    }
+
+.menu-inferior a {
+        font-size: 0.9rem; /* Tamaño de fuente más pequeño en móviles */
+        padding: 8px 15px; /* Reducir espaciado interno */
+    }
+
+    .menu-inferior .menu {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center; /* Centrar los elementos */
+    }
+}
+
+@media (max-width: 400px) {
+    .menu-inferior a {
+        font-size: 0.8rem; /* Tamaño de fuente aún más pequeño */
+    }
+}

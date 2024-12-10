@@ -1,0 +1,889 @@
+
+/* General */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #051338; /* Fondo oscuro */
+    color: #f0f0f0; /* Texto blanco */
+    box-sizing: border-box;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Altura inicial */
+    background: -webkit-linear-gradient(#97c9fc, #051338); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(#97c9fc, #051338); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    padding: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    box-shadow: 1 2px 20px rgba(138, 138, 145, 0.7);
+    animation: expand 3s forwards; /* Animación de expansión */
+}
+
+@keyframes expand {
+    0% {
+        height: 100vh;
+    }
+    100% {
+        height: 80px; /* Altura fija del header */
+    }
+}
+
+.logo {
+    width: 130px; /* Ancho fijo */
+    height: auto;
+    margin-right: 15px;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px rgb(255, 254, 254));
+}
+
+a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 20px;
+    transition: color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+.company-name {
+    font-size: 3rem; /* Tamaño de fuente grande */
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 5px; /* Espaciado entre letras */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #81bbe4;
+    animation: fadeInOut 5s ease-in-out infinite; /* Animación de desvanecimiento */
+    animation-delay: 1s;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .logo-container {
+        padding: 20px; /* Reducir padding en pantallas pequeñas */
+    }
+
+    .company-name {
+        font-size: 2rem; /* Tamaño más pequeño en pantallas pequeñas */
+        letter-spacing: 3px; /* Ajustar espaciado en pantallas pequeñas */
+    }
+
+    .logo {
+        width: 30%; /* Ajustar el tamaño del logo en pantallas pequeñas */
+        max-width: 100px; /* Limitar el tamaño máximo del logo */
+    }
+}
+
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 1.5rem; /* Tamaño aún más pequeño en pantallas muy pequeñas */
+    }
+
+    .logo {
+        width: 40%; /* Ajustar el tamaño del logo en pantallas muy pequeñas */
+    }
+}
+
+.service-section {
+    padding: 15rem 2rem;
+    text-align: center;
+    margin-top: calc(10vh + 1px);
+    border-radius: 10px; /* Bordes redondeados */
+    position: relative; /* Para el efecto de líneas */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+    background: rgba(5, 19, 56, 0.8); /* Fondo semi-transparente para un efecto moderno */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+    animation: fadeInContact 1.5s ease-in
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto de líneas animadas de fondo */
+.service-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 188, 212, 0.4) 25%, rgba(0, 188, 212, 0) 50%, rgba(0, 188, 212, 0.4) 75%);
+    background-size: 200% 100%;
+    animation: lineAnimation 4s linear infinite; /* Animación de líneas más lenta */
+    z-index: 0; /* Detrás del contenido */
+}
+
+/* Animación de líneas */
+@keyframes lineAnimation {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.service-header {
+    position: relative; /* Para el texto */
+    z-index: 1; /* Asegura que el texto esté por encima del fondo */
+    animation: fadeInUp 1s ease-in-out; /* Animación de entrada */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-header h3 {
+    font-size: 3rem; /* Tamaño de fuente más grande */
+    color: #dbe4eb; /* Azul brillante */
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.7); /* Resplandor más intenso */
+    animation: bounce 1s infinite alternate; /* Efecto de rebote */
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px); /* Aumento en el rebote */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.service-header p {
+    font-size: 1.5rem; /* Aumentar el tamaño de fuente */
+    max-width: 800px; /* Ancho máximo ajustado */
+    margin: 0 auto;
+    color: #dcdcdc; /* Color gris claro */
+    line-height: 1.6; /* Mejorar la legibilidad */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transición suave para cambios de color y tamaño */
+    animation: slideIn 1s ease-in; /* Animación de entrada */
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-header p:hover {
+    color: #ffffff; /* Cambiar color al pasar el mouse */
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.9), 0 0 30px rgba(0, 188, 212, 0.5); /* Efecto de resplandor al pasar el mouse */
+    transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
+    transition: transform 0.3s ease, color 0.3s ease; /* Transición suave para el aumento */
+}
+
+/* Sección de Información Detallada */
+.service-detail {
+    padding: 13rem 2rem;
+    text-align: center;
+    margin-top: calc(4vh + 1px);
+    position: relative;
+    color: #fff; /* Texto claro sobre fondo oscuro */
+    background-color: #0d0f1d; /* Fondo oscuro */
+    border-radius: 10px; /* Bordes redondeados para un toque moderno */
+    overflow: hidden;
+    animation: fadeInContact 1.5s ease-in
+}
+
+/* Fondo con efecto de líneas de luz animadas */
+.service-detail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg,#97c9fc 25%, #5293d3 50%, #051338 75%);
+    background-size: 200% 200%;
+    animation: movingLines 3s ease-in-out infinite; /* Movimiento fluido de las líneas */
+    opacity: 0.4;
+}
+
+/* Animación de las líneas de fondo */
+@keyframes movingLines {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+/* Título con animación de deslizamiento y resplandor futurista */
+.service-detail h2 {
+    font-size: 3rem; /* Tamaño de fuente más grande */
+    color: #dbe4eb; /* Azul brillante */
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.7); /* Resplandor más intenso */
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Animación de aparición del título */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Párrafos con animación de deslizamiento y mayor legibilidad */
+.service-detail p {
+    font-size: 1.5rem;
+    color: #e0e0e0; /* Gris suave para mejorar la lectura */
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    position: relative;
+    animation: slideIn 1.5s ease-out;
+}
+
+/* Animación de deslizamiento para los párrafos */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto interactivo para los párrafos */
+.service-detail p:hover {
+    text-shadow: 0 0 20px rgba(2, 217, 255, 0.7), 0 0 40px rgba(2, 217, 255, 0.5);
+    cursor: pointer;
+}
+
+/* Sombra de texto interactiva para el título */
+.service-detail h2:hover {
+    text-shadow: 0 0 30px rgb(7, 17, 19), 0 0 60px rgba(2, 217, 255, 0.8);
+    cursor: pointer;
+}
+
+/* Fondo con efecto parallax sutil para dar profundidad */
+.service-detail .parallax-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://cdn.pixabay.com/photo/2020/11/16/11/38/abstract-5746771_960_720.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+/* Sección de Beneficios */
+.service-content {
+    max-width: max-content;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 40px auto;
+    padding: 40px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.5)); /* Fondo radial suave */
+    box-shadow: 0 8px 60px rgba(0, 0, 0, 0.5); /* Sombra más profunda */
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+    animation: fadeInContact 1.5s ease-in
+}
+/* Animación de entrada */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Introducción del servicio */
+.service-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.service-intro h2 {
+    font-size: 3rem; /* Tamaño de fuente más grande */
+    color: #dbe4eb; /* Azul brillante */
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.7); /* Resplandor más intenso */
+}
+
+.service-intro p {
+    font-size: 1.5rem;
+    color: #e0e0e0;
+    margin: 0;
+    line-height: 1.5; /* Espaciado entre líneas */
+}
+
+
+/* Beneficios clave */
+.service-benefits {
+    display: flex;
+    flex-wrap: wrap; /* Cambiado a wrap */
+    gap: 40px; /* Espacio entre los elementos */
+    margin-top: 40px; /* Reducir margen superior */
+    justify-content: center; /* Centrar los items en la cuadrícula */
+    text-align: center; /* Centrar el contenido de los elementos */
+}
+
+.service-benefits h2 {
+    width: 100%;
+    font-size: 2rem;
+    margin-top: 0; /* Cambiado a 0 para evitar margen innecesario */
+    color: #fffafa;
+    margin-bottom: 20px;
+    text-align: center; /* Centrar texto */
+}
+
+
+/* Estilo de cada beneficio */
+.benefit-item {
+    flex: 1 1 calc(15% - 20px); /* Dos columnas con espacio entre ellas */
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 20px;
+    padding: 40px; /* Ajustar el padding para un mejor aspecto */
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones mejoradas */
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent; /* Borde inicial transparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque de fondo */
+    box-shadow: 0 15px 30px rgba(224, 223, 223, 0.4); /* Sombra más intensa */
+}
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
+}
+
+
+.benefit-icon {
+    width: 250px; /* Tamaño ajustado de las imágenes */
+    height: 250px;
+    margin-bottom: 15px;
+    object-fit: contain;
+    filter: brightness(1.1) contrast(1.2); /* Mejora el brillo y contraste de la imagen */
+}
+
+.benefit-item p {
+    font-size: 1.5rem; /* Tamaño del texto ajustado */
+    margin-top: 10px; /* Añadir margen superior para separación */
+    color: #f5ecec; /* Texto blanco para mayor contraste */
+}
+
+.benefit-item strong {
+    color: #0056b3; /* Color azul más oscuro para títulos */
+}
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 768px) {
+    .benefit-item {
+        flex: 1 1 100%; /* Una columna en pantallas pequeñas */
+    }
+    
+    .service-intro h2 {
+        font-size: 2em;
+    }
+    
+    .service-benefits h2 {
+        font-size: 1.8em;
+    }
+    
+    .benefit-icon {
+        width: 120px; /* Ajustar el tamaño de las imágenes en móviles */
+        height: 120px;
+        filter: brightness(1.1) contrast(1.2); /* Mantener el filtro en móviles */
+    }
+}
+
+
+/* Sección Casos de Éxito */
+.use-cases {
+    background: linear-gradient( #051338, #97c9fc);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInContact 1.5s ease-in
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3rem; /* Tamaño de fuente más grande */
+    color: #dbe4eb; /* Azul brillante */
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.7); /* Resplandor más intenso */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    font-family: 'Arial', sans-serif; /* Tipografía más moderna */
+}
+
+/* Estilo para los casos */
+.use-case {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    background: #9db4f1; /* Fondo con opacidad */
+    border-radius: 20px;
+    padding: 20px; /* Aumentar padding */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Sombra más suave */
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.use-case:hover {
+    transform: translateY(-10px) scale(1.05); /* Efecto de elevación */
+    box-shadow: 0 20px 60px rgba(0, 174, 255, 0.7);
+}
+
+.client-logo {
+    max-width: 145px; /* Tamaño del logo */
+    margin-bottom: 0px;
+    border-radius: 50%;
+    border: 4px solid #1403ac;
+    transition: transform 0.3s, box-shadow 0.3s; /* Animación suave */
+}
+
+.client-logo:hover {
+    transform: scale(1.1); /* Efecto de hover */
+    box-shadow: 0 0 15px rgba(0, 174, 255, 0.5);
+}
+
+.use-case-content {
+    text-align: center; /* Centrar el texto */
+    max-width: 800px;
+    color: #080808;
+}
+
+.client-name {
+    font-size: 2rem; /* Aumentar tamaño del nombre */
+    margin-bottom:10px;
+    color: #04184e;
+    font-weight: bold; /* Negrita para mayor énfasis */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+.use-case p {
+    font-size: 1.3rem; /* Aumentar tamaño de párrafo */
+    line-height: 1.8; /* Aumentar espaciado entre líneas */
+}
+
+/* Líneas de conexión */
+.line-connection {
+    position: absolute;
+    width: 100%;
+    height: 4px; /* Grosor de la línea */
+    background: linear-gradient(to right, #0a2777, #00aaff);
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -1;
+    animation: lineMove 2s infinite alternate;
+}
+
+/* Animaciones */
+@keyframes lineMove {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+/* Sección de Contacto */
+#contacto {
+
+    color: #f0f0f0;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 4px solid #0349ca;
+    animation: fadeInContact 1.5s ease-in;
+}
+
+@keyframes fadeInContact {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#contacto h2 {
+    font-size: 2rem;
+    color: #81bbe4;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+#contacto p {
+    font-size: 1.5rem;
+    margin: 0 auto 2rem;
+    max-width: 800px;
+    color: #dcdcdc;
+    text-align: justify;
+}
+
+.contacto-container {
+    margin-bottom: 2rem;
+}
+
+.mensaje-confirmacion {
+    display: none;
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: #FFF;
+    background-color: #28a745;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+.mensaje-confirmacion.show {
+    display: block;
+}
+
+.mensaje-confirmacion:hover {
+    transform: translateY(-3px);
+}
+
+.boton-contacto {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.boton-contacto a {
+    padding: 15px 20px;
+    font-size: 1.5em;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+#whatsapp-btn {
+    background-color: #25D366;
+    color: white;
+}
+
+#whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+}
+
+#gmail-btn {
+    background-color: #f11805;
+    color: white;
+}
+
+#gmail-btn:hover {
+    background-color: #C13524;
+    transform: translateY(-3px);
+}
+
+.mensaje-agradecimiento {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #f1f1f1;
+}
+
+/* Media Queries para Contacto */
+@media (max-width: 600px) {
+    #contacto {
+        padding: 2rem 1rem;
+    }
+
+    .contacto-container {
+        margin-bottom: 1rem;
+    }
+
+    .mensaje-agradecimiento {
+        font-size: 1em;
+    }
+
+    /* Ajustes para los botones de contacto */
+    .boton-contacto a {
+        font-size: 1.2em;
+        padding: 12px 15px;
+    }
+
+    /* Ajustes a la confirmación de mensaje */
+    .mensaje-confirmacion {
+        font-size: 1.2em;
+        padding: 12px;
+    }
+}
+
+.contact-form button:hover {
+    background-color: #81bbe4;
+    transform: translateY(-5px);
+}
+
+.contact-form button:active {
+    transform: translateY(2px);
+}
+
+/* Media Queries para Contacto */
+@media (max-width: 600px) {
+    #contacto {
+        padding: 2rem 1rem;
+    }
+
+    .contact-form {
+        gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-form button {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 5rem 0;
+    background-color: #1c1f33;
+    color: #dcdcdc;
+    font-size: 1rem;
+    animation: fadeInContact 1.5s ease-in
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .service-benefits {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .benefit-item {
+        padding: 1.5rem;
+    }
+
+    .use-cases {
+        padding: 3rem 2rem;
+    }
+
+    .use-case {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 2rem;
+    }
+
+    .service-header h3 {
+        font-size: 1.8rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .service-intro h2 {
+        font-size: 1.5rem;
+    }
+}
+
+.menu-inferior {
+    background: linear-gradient(145deg, #8b96e7, #1d1d2b); /* Degradado vibrante */
+    border-radius: 40px; /* Bordes muy redondeados */
+    position: fixed; /* Fijo en la parte inferior */
+    bottom: 20px; /* Ajustado para posicionarlo más arriba */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Ajustar para centrar */
+    width: calc(100% - 40px); /* Ajustar para tener márgenes laterales */
+    max-width:1400px; /* Ancho máximo */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Sombra más intensa */
+    z-index: 1; /* Asegúrate de que esté encima de otros elementos */
+    padding: 10px 0; /* Espaciado vertical */
+    backdrop-filter: blur(25px); /* Efecto de desenfoque de fondo más fuerte */
+    transition: background 0.5s, transform 0.3s, bottom 0.5s ease-in-out, opacity 0.3s; /* Añadir animación para "bottom" y "opacity" */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil para un toque HD */
+    opacity: 1; /* Asegura que el menú sea visible al principio */
+    transform-origin: center center; /* Establecer el centro como origen de las transformaciones */
+}
+
+.menu-inferior:hover {
+    background: linear-gradient(135deg, #1d1d2b, #3a3e5b);
+    transform: translateY(-10px) translateX(-50%); /* Mantener el centramiento al hacer hover */
+    opacity: 0.9; /* Reduce ligeramente la opacidad al hacer hover */
+}
+
+  /* Agregar animación al menú cuando se carga la página */
+@keyframes slideUp {
+    0% {
+      bottom: -100px; /* Comienza fuera de la pantalla */
+      opacity: 0; /* Invisible al inicio */
+    }
+    100% {
+      bottom: 20px; /* Se coloca en su posición final */
+      opacity: 1; /* Visibilidad completa */
+    }
+}
+
+.menu-inferior {
+    animation: slideUp 1s ease-out forwards; /* Aplica la animación al menú */
+}
+
+.menu-inferior nav {
+    display: flex; /* Flexbox para alinear los elementos */
+    justify-content: space-around; /* Espaciado uniforme entre elementos */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+}
+.menu-inferior .menu {
+    list-style: none; /* Sin viñetas */
+    padding: 0; /* Sin padding */
+    margin: 0; /* Sin margen */
+    display: flex; /* Para alinear horizontalmente */
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten en pantallas pequeñas */
+    justify-content: center; /* Centrar los elementos */
+}
+
+.menu-inferior .menu li {
+    margin: 5px; /* Añadir márgenes para evitar que los elementos se amontonen */
+}
+
+.menu-inferior a {
+    color: #ffffff; /* Color de texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: 700; /* Peso de fuente más audaz */
+    transition: color 0.3s, transform 0.3s, background-color 0.3s; /* Transiciones suaves */
+    font-size: 1rem; /* Tamaño de fuente ajustado */
+    display: flex; /* Para alinear iconos y texto */
+    align-items: center;
+    padding: 10px 20px; /* Espaciado interno más ajustado */
+    border-radius: 25px; /* Bordes redondeados en enlaces */
+    position: relative; /* Para efecto de pseudo-elemento */
+}
+
+  /* Efecto Hover */
+.menu-inferior a:hover {
+    color: #ffd700; /* Cambia a dorado al pasar el mouse */
+    transform: translateY(-5px); /* Eleva ligeramente el enlace */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo claro al pasar el mouse */
+}
+
+  /* Efecto Activo (clic) */
+.menu-inferior a:active {
+    transform: translateY(2px); /* Baja ligeramente al hacer clic */
+    color: #ff4500; /* Cambia a un color naranja */
+}
+
+  /* Pseudo-elemento para un efecto visual adicional */
+.menu-inferior a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: #ffd700; /* Línea dorada */
+    transition: width 0.3s, left 0.3s; /* Transiciones suaves */
+}
+
+.menu-inferior a:hover::after {
+    width: 100%; /* Línea se expande al pasar el mouse */
+    left: 0; /* Alinear a la izquierda */
+}
+
+  /* Media Queries para Responsividad */
+@media (max-width: 600px) {
+    .menu-inferior {
+        width: calc(100% - 20px); /* Ajustar el ancho para pantallas pequeñas */
+        padding: 15px 0; /* Reducir el padding en pantallas pequeñas */
+    }
+
+.menu-inferior a {
+        font-size: 0.9rem; /* Tamaño de fuente más pequeño en móviles */
+        padding: 8px 15px; /* Reducir espaciado interno */
+    }
+
+    .menu-inferior .menu {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center; /* Centrar los elementos */
+    }
+}
+
+@media (max-width: 400px) {
+    .menu-inferior a {
+        font-size: 0.8rem; /* Tamaño de fuente aún más pequeño */
+    }
+}
